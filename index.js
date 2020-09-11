@@ -5,6 +5,7 @@ require("dotenv").config();
 require("colors");
 const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 client.on("connect", function () {
   console.log("Connected".green);
@@ -96,6 +97,10 @@ app.get("/api/url/:id", (req, res, next) => {
       });
     }
   });
+});
+
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "/client/build", "index.html"));
 });
 
 app.listen(process.env.PORT, () =>
