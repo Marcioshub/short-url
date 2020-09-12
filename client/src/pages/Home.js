@@ -1,33 +1,34 @@
 import React from "react";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Typography from "@material-ui/core/Typography";
+// import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Link from "@material-ui/core/Link";
+// import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import FormData from "../components/FormData";
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary">
-      {"Copyright © "}
-      <Link color="inherit" href="/">
-        Short Url
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+// function Copyright() {
+//   return (
+//     <Typography variant="body2" color="textSecondary">
+//       {"Copyright © "}
+//       <Link color="inherit" href="/">
+//         Short Url
+//       </Link>{" "}
+//       {new Date().getFullYear()}
+//       {"."}
+//     </Typography>
+//   );
+// }
 
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
     minHeight: "100vh",
+    backgroundColor: "#414FAA",
   },
   main: {
-    marginTop: theme.spacing(8),
+    marginTop: theme.spacing(25),
     marginBottom: theme.spacing(2),
     textAlign: "center",
   },
@@ -57,12 +58,12 @@ export default function Home() {
           <FormData />
         </Paper>
       </Container>
-      <footer className={classes.footer}>
+      {/* <footer className={classes.footer}>
         <Container maxWidth="sm" style={{ textAlign: "center" }}>
           <Typography variant="body1">Try it!</Typography>
           <Copyright />
         </Container>
-      </footer>
+      </footer> */}
     </div>
   );
 }

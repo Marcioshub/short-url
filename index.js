@@ -91,7 +91,7 @@ app.get("/api/url/:id", (req, res, next) => {
         message: "Url does not exist OR has expired",
       });
     } else {
-      // console.log(url);
+      console.log(url);
       res.json({
         success: true,
         data: url,

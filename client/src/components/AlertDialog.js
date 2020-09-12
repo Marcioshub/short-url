@@ -21,7 +21,7 @@ export default function AlertDialog({ open, setOpen, message, setUrl }) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Please copy the shortened url below"}
+          {"Please copy the newly shortened url below"}
         </DialogTitle>
         <DialogContent>
           <DialogContentText

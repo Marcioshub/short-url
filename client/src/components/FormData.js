@@ -6,6 +6,7 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import FormHelperText from "@material-ui/core/FormHelperText";
 import AlertDialog from "./AlertDialog";
 
 const useStyles = makeStyles((theme) => ({
@@ -14,10 +15,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-  },
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -35,6 +32,10 @@ export default function FormData() {
   const [message, setMessage] = React.useState();
 
   async function addUrl() {
+    if (url === "" || url === undefined) {
+      return;
+    }
+
     const response = await axios.post("/api/add", { url });
 
     if (response.data.success) {
@@ -48,8 +49,11 @@ export default function FormData() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Typography component="h1" variant="h5" style={{ marginTop: 25 }}>
-          Enter Url To Shorten
+        <Typography component="h1" variant="h2" style={{ marginTop: 10 }}>
+          SHORT URL
+        </Typography>
+        <Typography component="h1" variant="body1">
+          Paste your URL and hit submit
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -75,8 +79,11 @@ export default function FormData() {
           >
             Submit
           </Button>
+          <FormHelperText style={{ textAlign: "center" }}>
+            {" "}
+            Remember the short url will only last for 24 hours!
+          </FormHelperText>
         </form>
-        <br />
       </div>
       <AlertDialog
         open={open}
