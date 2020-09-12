@@ -1,5 +1,6 @@
 const express = require("express");
 const redis = require("redis");
+const path = require("path");
 const client = redis.createClient();
 require("dotenv").config();
 require("colors");
